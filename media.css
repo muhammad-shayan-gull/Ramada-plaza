@@ -1,0 +1,194 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1440px) {
+  .guest-Reviews {
+    bottom: 10% !important;
+  }
+}
+@media (max-width: 767px) {
+  .navbar img {
+    max-width: 160px;
+  }
+  .hero-section .hero-text-wrapper {
+    top: 5%;
+  }
+  .hero-section h1 {
+    font-size: 39px !important;
+    line-height: 40px !important;
+  }
+  .hero-section p {
+    font-size: 15px;
+  }
+  .section-2 h2 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  p {
+    font-size: 15px !important;
+    line-height: 20px !important;
+  }
+  .rooms-and-suites h5 {
+    font-size: 19px;
+    padding-bottom: 0px !important;
+  }
+  .rooms-and-suites h2 {
+    font-size: 35px;
+  }
+  .section-3 h5 {
+    font-size: 20px;
+  }
+  .section-3 h2 {
+    font-size: 32px !important;
+    line-height: 35px !important;
+  }
+  header {
+    display: none;
+  }
+  .guest-Reviews {
+    display: none;
+  }
+  .lg-slider {
+    display: none !important;
+  }
+  .section-2 .sec-2-bg-img {
+    height: 234px;
+    width: 100%;
+  }
+  .section-4 {
+    height: 100%;
+  }
+  .section-4 h2 {
+    font-size: 25px !important;
+    line-height: 25px !important;
+  }
+  .section-4 .facility-box h5 {
+    font-size: 18px !important;
+  }
+  .section-5 {
+    display: none;
+  }
+  .section-7 {
+    height: 100%;
+  }
+  .section-7 h2 {
+    font-size: 23px !important;
+    line-height: 28px !important;
+  }
+  .section-7 h5 {
+    font-size: 18px !important;
+  }
+  .section-7 .booking-form {
+    background: #d21241;
+    padding: 15px;
+    color: #fff;
+    width: 100%;
+    position: inherit;
+    right: 0%;
+    left: 0%;
+    bottom: -4%;
+  }
+  .section-7 .booking-form h4 {
+    font-size: 17px !important;
+  }
+  .section-7 .booking-form .ramada-input label {
+    font-size: 14px;
+  }
+  .section-8 img {
+    padding: 10px 0px 10px !important;
+  }
+  .cards-container {
+    height: 70vh !important;
+  }
+  .cards-container .cards-wrapper {
+    top: 33% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar img {
+    width: 150px !important;
+  }
+  .second-nav-img {
+    display: none;
+  }
+  .guest-Reviews {
+    display: none !important;
+  }
+  .sec-2-bg-img {
+    width: 300px !important;
+    height: 300px !important;
+    background-size: contain;
+  }
+  .section-3 .main-3-image {
+    margin-top: 10% !important;
+  }
+  .section-3 .main-3-image img {
+    width: 400px;
+    height: 400px;
+  }
+  .section-3 .img-wrapper {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  .section-3 .img-wrapper p {
+    font-size: 17px !important;
+  }
+  .section-3 .one-right img, .section-3 .tow-right img {
+    width: 160px;
+    height: 101px;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .section-8 img {
+    width: 100px;
+    height: auto;
+  }
+  .section-7 h2 {
+    line-height: none !important;
+    font-size: 34px;
+  }
+  .section-7 h5 {
+    font-size: 19px;
+  }
+  .booking-form {
+    position: fixed;
+    width: 100% !important;
+    top: -9% !important;
+    bottom: -40% !important;
+    left: 5%;
+  }
+  .section-4 h2 {
+    font-size: 48px !important;
+  }
+  .section-4 p {
+    font-size: 16px !important;
+  }
+  .section-4 h5 {
+    font-size: 17px !important;
+  }
+  .cards-container {
+    height: 70vh !important;
+  }
+  .cards-container .cards-wrapper {
+    top: 35% !important;
+  }
+  .section-5 img {
+    width: 90px !important;
+    height: auto !important;
+  }
+  .section-5 h3 {
+    font-size: 29px !important;
+  }
+  .section-5 h5 {
+    font-size: 18px;
+  }
+  .hero-section h1 {
+    font-size: 65px !important;
+  }
+  footer h6 {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=media.css.map */
