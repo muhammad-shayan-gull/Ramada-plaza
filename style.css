@@ -10,11 +10,11 @@ body {
 
 .header-bg-color {
   border-bottom: 1px solid rgba(255, 255, 255, 0.0666666667);
-  background-color: #7b001f;
+  background-color: #702CF9;
   color: #fff;
 }
 .header-bg-color i:hover {
-  color: #d21241;
+  color: #5D3A9B;
 }
 
 .navbar {
@@ -36,20 +36,20 @@ body {
   z-index: 30;
 }
 .navbar li a:hover {
-  color: #d21241;
+  color: #702CF9;
 }
 .navbar .dropdown-menu {
-  border: 2px solid #7b001f;
+  border: 2px solid #5D3A9B;
 }
 .navbar .dropdown-menu li a:hover {
   color: #fff;
-  background-color: #7b001f !important;
+  background-color: #5D3A9B !important;
 }
 
 .header-btn {
   height: 55px;
   width: 170px;
-  background-color: #d21241;
+  background-color: #702CF9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +59,7 @@ body {
   text-decoration: none;
 }
 .header-btn span {
-  background-color: #7b001f;
+  background-color: #5D3A9B;
   width: 30px;
   height: 30px;
   display: flex;
@@ -75,10 +75,12 @@ h1, h2, h3, h4 {
 }
 
 .hero-section {
-  background-image: url(images/hero-img.jpg);
+  background-image: url(images/Bangash-hotel.png);
   background-repeat: no-repeat;
   background-attachment: scroll;
+  background-position: center;
   background-size: cover;
+  width: 100%;
   height: 100vh;
   position: relative;
 }
@@ -103,17 +105,17 @@ h1, h2, h3, h4 {
   font-family: "Cinzel";
 }
 .hero-section .hero-text-wrapper span {
-  color: #d21241;
+  color: #702CF9;
   text-transform: capitalize !important;
   margin-top: 20px !important;
 }
 .hero-section .hero-text-wrapper p {
-  color: #000;
+  color: #333;
   font-weight: 500;
   visibility: visible;
 }
 .hero-section .hero-text-wrapper button {
-  background-color: #d21241;
+  background-color: #702CF9;
   color: #fff;
   padding: 15px 35px;
   text-transform: capitalize;
@@ -123,7 +125,7 @@ h1, h2, h3, h4 {
 }
 .hero-section .hero-text-wrapper button:hover {
   background-color: #fff;
-  color: #d21241;
+  color: #702CF9;
 }
 .hero-section .guest-Reviews {
   position: absolute;
@@ -148,7 +150,7 @@ h1, h2, h3, h4 {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: #d21241;
+  background-color: #702CF9;
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -183,7 +185,7 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 .section-2 span {
-  color: #d21241;
+  color: #702CF9;
 }
 .section-2 .sec-2-bg-img {
   background-image: url(images/lobby_view.webp);
@@ -196,7 +198,7 @@ h1, h2, h3, h4 {
 .section-2 .service {
   display: flex;
   align-items: center;
-  background-color: #d21241;
+  background-color: #702CF9;
   height: 65px;
   width: 210px;
   justify-content: center;
@@ -227,7 +229,7 @@ h1, h2, h3, h4 {
 .reservation .phone {
   width: 45px;
   height: 45px;
-  background-color: #d21241;
+  background-color: #702CF9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,7 +246,7 @@ h1, h2, h3, h4 {
 }
 
 .ramada-bg {
-  background-image: url(images/bg-services.jpg);
+  background-image: url(images/bangash-services.png);
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -337,8 +339,8 @@ h1, h2, h3, h4 {
   z-index: 10;
 }
 .cards-container .cards-wrapper .card-button:hover {
-  color: #d21241;
-  border-color: #d21241;
+  color: #702CF9;
+  border-color: #702CF9;
 }
 .cards-container .cards-wrapper .information {
   position: absolute;
@@ -353,7 +355,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
   font-family: "Barlow" !important;
   -webkit-text-stroke: #fff 0.5px;
-  border-bottom: #d21241 3px solid;
+  border-bottom: #5D3A9B 3px solid;
 }
 .cards-container .cards-wrapper .information:hover {
   bottom: 5%;
@@ -376,11 +378,11 @@ h1, h2, h3, h4 {
 }
 .cards-container .carousel-indicators .active {
   opacity: 1; /* Full opacity for the active dot */
-  background-color: #d21241; /* Active dot color */
+  background-color: #5D3A9B; /* Active dot color */
 }
 
 .red {
-  color: #d21241;
+  color: #702CF9;
 }
 
 .section-3 .s3-text i {
@@ -399,7 +401,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 .section-3 .s3-text h2 span {
-  color: #d21241;
+  color: #702CF9;
 }
 .section-3 .s3-text h4 {
   font-family: "Barlow";
@@ -450,7 +452,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 .section-4 .text h2 span {
-  color: #d21241;
+  color: #702CF9;
 }
 .section-4 .text p {
   color: #272727;
@@ -473,7 +475,7 @@ h1, h2, h3, h4 {
 }
 .section-4 .facility-box h5 span {
   padding-bottom: 10px;
-  border-bottom: 4px solid #d21241;
+  border-bottom: 4px solid #702CF9;
 }
 .section-4 .facility-box p {
   color: #838383;
@@ -502,7 +504,7 @@ h1, h2, h3, h4 {
   font-size: 35px;
   font-weight: 500;
   color: #fff;
-  background-color: #d21241;
+  background-color: #702CF9;
   height: 55px;
   width: 55px;
   position: absolute;
@@ -556,7 +558,7 @@ h1, h2, h3, h4 {
 }
 .section-5 h5::after {
   content: "";
-  background-color: #d21241;
+  background-color: #702CF9;
   position: absolute;
   left: 0;
   right: 0;
@@ -584,7 +586,7 @@ h1, h2, h3, h4 {
 }
 .section-5-0 h5::after {
   content: "";
-  background-color: #d21241;
+  background-color: #702CF9;
   position: absolute;
   left: 0;
   right: 0;
@@ -615,7 +617,7 @@ h1, h2, h3, h4 {
 }
 .section-5-0 .carousel-indicators .active {
   opacity: 1; /* Full opacity for the active dot */
-  background-color: #d21241; /* Active dot color */
+  background-color: #702CF9; /* Active dot color */
 }
 
 .section-6 {
@@ -648,7 +650,7 @@ h1, h2, h3, h4 {
   font-size: 24px;
   font-weight: 300;
   font-family: "Barlow";
-  color: #d21241;
+  color: #702CF9;
 }
 .section-7 h2 {
   color: #1d2327;
@@ -657,7 +659,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 .section-7 h2 span {
-  color: #d21241;
+  color: #702CF9;
 }
 .section-7 .text-slider-wrapper p {
   color: #000;
@@ -678,13 +680,13 @@ h1, h2, h3, h4 {
 }
 .section-7 .text-slider-wrapper .carousel-indicators .active {
   opacity: 1; /* Full opacity for the active dot */
-  background-color: #d21241; /* Active dot color */
+  background-color: #702CF9; /* Active dot color */
 }
 .section-7 .form-wrapper {
   position: relative;
 }
 .section-7 .booking-form {
-  background: #d21241;
+  background: #702CF9;
   padding: 20px;
   color: #fff;
   width: 60%;
@@ -718,7 +720,7 @@ h1, h2, h3, h4 {
   margin-bottom: 5px;
 }
 .section-7 .booking-form .ramada-input input {
-  background: #d21241;
+  background: #702CF9;
   color: #fff;
   border: 1px solid #fff;
   padding: 10px;
@@ -734,7 +736,7 @@ h1, h2, h3, h4 {
 }
 .section-7 .booking-form .btn-primary {
   background: #fff;
-  color: #d21241;
+  color: #702CF9;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -758,7 +760,7 @@ h1, h2, h3, h4 {
 }
 
 footer {
-  background-color: #d21241;
+  background-color: #702CF9;
 }
 footer h6 {
   color: #fff;
@@ -770,7 +772,7 @@ footer i {
 }
 footer .footer-button {
   padding: 10px 40px;
-  color: #d21241;
+  color: #702CF9;
 }
 
 ::-webkit-scrollbar {
@@ -782,7 +784,7 @@ footer .footer-button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d21241;
+  background: #702CF9;
 }
 
 .a-left-item {
