@@ -342,132 +342,128 @@ h1,h2,h3,h4{
 
 // Define variables for colors
 
-.cards-container{
-
-// background-color: #000;
-height: 60vh;
-
-.card{
-    width: 100%;
-    border: none;
-    
+.carousel-container{
+    position: absolute;
+    top: 25%; 
 }
 
- .cards-wrapper {
-    width: 100%;
-    position: absolute;
-    top: 28%;
-    padding: 20px !important;
-    left: 0;
-    right: 0;
+:root {
+  --gap: 1rem;
+  --card-height: 420px;
+}
 
+.carousel-wrap {
+  position: relative;
+
+  .cards-container {
+    display: flex;
+    gap: var(--gap);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    user-select: none;
+    touch-action: pan-y;
+
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #702CF9;
+      border-radius: 10px;
+    }
+  }
+
+  .card-item {
+    flex: 0 0 calc(25% - (var(--gap) * 0.75));
+    scroll-snap-align: center;
+    min-width: 220px;
+    max-width: 420px;
+    height: var(--card-height);
+    overflow: hidden;
+ border: #5D3A9B 3px solid;
+    .card-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+      background-size: cover;
+      background-position: center;
+      padding: 1rem;
+      
      
-.service1{
-    background-image: url(images/servicebox02.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 450px;
-    position: relative;
-}
-.service2{ 
-    background-image: url(images/servicebox01.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 450px;
-    position: relative;
-}
-.service3{ 
-    background-image: url(images/servicebox04.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 450px;
-    position: relative;
-}
-.service4{
-    background-image: url(images/servicebox01.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 450px;
-    position: relative;
 
-}
+      /* fallback background */
+      background-color: #ccc;
+      .Card-button{
+        border:#5D3A9B 3px solid;
+        background: transparent;
+        padding: 5px 16px;
+        position: absolute;
+        right: 5px;
+        top: 60px;
+        rotate: 90deg;
+        color: #5D3A9B;
+        &:hover{
+            background-color: #5D3A9B;
+            color: #fff;
+        }
+      }
+    }
 
-.card-button{
-    background-color: transparent;
-    transform: rotate(90deg);
+    /* Example background images per card (nth-child) */
+    &:nth-child(1) .card-inner { background-image: url("images/servicebox01.jpg"); }
+    &:nth-child(2) .card-inner { background-image: url("images/servicebox02.jpg"); }
+    &:nth-child(3) .card-inner { background-image: url("images/servicebox04.jpg"); }
+    &:nth-child(4) .card-inner { background-image: url("images/servicebox01.jpg"); }
+    &:nth-child(5) .card-inner { background-image: url("images/servicebox02.jpg"); }
+    &:nth-child(6) .card-inner { background-image: url("images/servicebox04.jpg"); }
+    &:nth-child(7) .card-inner { background-image: url("images/servicebox01.jpg"); }
+    &:nth-child(8) .card-inner { background-image: url("images/servicebox02.jpg"); }
+  }
+
+  @media (max-width: 1199.98px) {
+    .card-item { flex: 0 0 calc(33.333% - (var(--gap) * 0.66)); }
+  }
+  @media (max-width: 767.98px) {
+    .card-item { flex: 0 0 calc(50% - (var(--gap) * 0.5)); }
+  }
+  @media (max-width: 479.98px) {
+    .card-item { flex: 0 0 calc(100% - (var(--gap) * 0.3)); }
+  }
+
+  .grabbing { cursor: grabbing; }
+  .grab { cursor: grab; }
+
+  .nav-btn {
     position: absolute;
-    right: 0%;
-    top: 15%;
-    padding: 6px 18px;
-    color: #fff;
-    border: 2px solid #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     z-index: 10;
 
-    &:hover{
-        color: $primary-color;
-        border-color: $primary-color;
-
-    }
-
-}
-
-.information{
-    position: absolute;
-    bottom: -9%;
-    color: #fff;
-    left: 5%;
-z-index: 10;
-transition-duration: 0.4s;
-    h4{
-    font-size: 25px;
-    font-weight: 500;
-    font-family: "Barlow" !important;
-    -webkit-text-stroke: #fff 0.5px;
-    border-bottom: $secondary-color 3px solid;
-    }
-
-    &:hover{
-        bottom:5%;
-        
-    }
-
+    &.prev-btn { left: -20px; }
+    &.next-btn { right: -20px; }
+  }
 }
 
 
 
-    
-
-    }
-    
-     /* Custom CSS to position the carousel indicators below the slider */
-     .carousel-indicators{
-        position: absolute;
-        bottom: -50px; /* Adjust this value to position the dots below the slider */
-        left: 0%;
-        right: 0%;
-    }
-
-    /* Custom styles to make the indicators circular */
-    .carousel-indicators [data-bs-target] {
-        width: 12px; /* Size of the circle */
-        height: 12px; /* Size of the circle */
-        border-radius: 50%; /* Makes it circular */
-        background-color: #FFF; /* Default color */
-        border: 1px solid ; /* Optional: Add a border */
-        margin: 0 5px; /* Spacing between dots */
-        opacity: 0.5; /* Default opacity for inactive dots */
-        transition: opacity 0.3s ease; /* Smooth transition */
-    }
-
-    .carousel-indicators .active {
-        opacity: 1; /* Full opacity for the active dot */
-        background-color: $secondary-color; /* Active dot color */
-    }
-
-}
 
 
-
+// slider end 
 
 
 
@@ -510,7 +506,7 @@ h4{
     }
 
     .img-wrapper{
-        background-image: url(images/bg-video-review.jpg);
+        background-image: url(images/my-contury.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -522,7 +518,7 @@ h4{
         right: 15%;
         bottom: -160px;
         padding: 45px 30px;
-
+   
         p{
             color: #FFF;
             font-family: "Barlow";
@@ -835,7 +831,7 @@ transition-duration: 0.4s;
 
 
 
-    $input-bg: $primary-color;  // Background color for inputs and form
+ 
 $text-color: #fff; // Text color
 $border-color: #fff; // Border color
 
@@ -844,7 +840,7 @@ $border-color: #fff; // Border color
 }
 
 .booking-form {
-  background: $input-bg;
+  background: $primary-color;
   padding: 20px;
   color: $text-color;
   width: 60%;

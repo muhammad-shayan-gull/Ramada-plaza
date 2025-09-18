@@ -282,103 +282,142 @@ h1, h2, h3, h4 {
   padding-bottom: 10%;
 }
 
-.cards-container {
-  height: 60vh;
-  /* Custom CSS to position the carousel indicators below the slider */
-  /* Custom styles to make the indicators circular */
+.carousel-container {
+  position: absolute;
+  top: 25%;
 }
-.cards-container .card {
-  width: 100%;
+
+:root {
+  --gap: 1rem;
+  --card-height: 420px;
+}
+
+.carousel-wrap {
+  position: relative;
+}
+.carousel-wrap .cards-container {
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  touch-action: pan-y;
+}
+.carousel-wrap .cards-container::-webkit-scrollbar {
+  height: 10px;
+}
+.carousel-wrap .cards-container::-webkit-scrollbar-thumb {
+  background: #702CF9;
+  border-radius: 10px;
+}
+.carousel-wrap .card-item {
+  flex: 0 0 calc(25% - var(--gap) * 0.75);
+  scroll-snap-align: center;
+  min-width: 220px;
+  max-width: 420px;
+  height: var(--card-height);
+  overflow: hidden;
+  border: #5D3A9B 3px solid;
+  /* Example background images per card (nth-child) */
+}
+.carousel-wrap .card-item .card-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  /* fallback background */
+  background-color: #ccc;
+}
+.carousel-wrap .card-item .card-inner .Card-button {
+  border: #5D3A9B 3px solid;
+  background: transparent;
+  padding: 5px 16px;
+  position: absolute;
+  right: 5px;
+  top: 60px;
+  rotate: 90deg;
+  color: #5D3A9B;
+}
+.carousel-wrap .card-item .card-inner .Card-button:hover {
+  background-color: #5D3A9B;
+  color: #fff;
+}
+.carousel-wrap .card-item:nth-child(1) .card-inner {
+  background-image: url("images/servicebox01.jpg");
+}
+.carousel-wrap .card-item:nth-child(2) .card-inner {
+  background-image: url("images/servicebox02.jpg");
+}
+.carousel-wrap .card-item:nth-child(3) .card-inner {
+  background-image: url("images/servicebox04.jpg");
+}
+.carousel-wrap .card-item:nth-child(4) .card-inner {
+  background-image: url("images/servicebox01.jpg");
+}
+.carousel-wrap .card-item:nth-child(5) .card-inner {
+  background-image: url("images/servicebox02.jpg");
+}
+.carousel-wrap .card-item:nth-child(6) .card-inner {
+  background-image: url("images/servicebox04.jpg");
+}
+.carousel-wrap .card-item:nth-child(7) .card-inner {
+  background-image: url("images/servicebox01.jpg");
+}
+.carousel-wrap .card-item:nth-child(8) .card-inner {
+  background-image: url("images/servicebox02.jpg");
+}
+@media (max-width: 1199.98px) {
+  .carousel-wrap .card-item {
+    flex: 0 0 calc(33.333% - var(--gap) * 0.66);
+  }
+}
+@media (max-width: 767.98px) {
+  .carousel-wrap .card-item {
+    flex: 0 0 calc(50% - var(--gap) * 0.5);
+  }
+}
+@media (max-width: 479.98px) {
+  .carousel-wrap .card-item {
+    flex: 0 0 calc(100% - var(--gap) * 0.3);
+  }
+}
+.carousel-wrap .grabbing {
+  cursor: grabbing;
+}
+.carousel-wrap .grab {
+  cursor: grab;
+}
+.carousel-wrap .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
   border: none;
-}
-.cards-container .cards-wrapper {
-  width: 100%;
-  position: absolute;
-  top: 28%;
-  padding: 20px !important;
-  left: 0;
-  right: 0;
-}
-.cards-container .cards-wrapper .service1 {
-  background-image: url(images/servicebox02.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 450px;
-  position: relative;
-}
-.cards-container .cards-wrapper .service2 {
-  background-image: url(images/servicebox01.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 450px;
-  position: relative;
-}
-.cards-container .cards-wrapper .service3 {
-  background-image: url(images/servicebox04.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 450px;
-  position: relative;
-}
-.cards-container .cards-wrapper .service4 {
-  background-image: url(images/servicebox01.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 450px;
-  position: relative;
-}
-.cards-container .cards-wrapper .card-button {
-  background-color: transparent;
-  transform: rotate(90deg);
-  position: absolute;
-  right: 0%;
-  top: 15%;
-  padding: 6px 18px;
-  color: #fff;
-  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   z-index: 10;
 }
-.cards-container .cards-wrapper .card-button:hover {
-  color: #702CF9;
-  border-color: #702CF9;
+.carousel-wrap .nav-btn.prev-btn {
+  left: -20px;
 }
-.cards-container .cards-wrapper .information {
-  position: absolute;
-  bottom: -9%;
-  color: #fff;
-  left: 5%;
-  z-index: 10;
-  transition-duration: 0.4s;
-}
-.cards-container .cards-wrapper .information h4 {
-  font-size: 25px;
-  font-weight: 500;
-  font-family: "Barlow" !important;
-  -webkit-text-stroke: #fff 0.5px;
-  border-bottom: #5D3A9B 3px solid;
-}
-.cards-container .cards-wrapper .information:hover {
-  bottom: 5%;
-}
-.cards-container .carousel-indicators {
-  position: absolute;
-  bottom: -50px; /* Adjust this value to position the dots below the slider */
-  left: 0%;
-  right: 0%;
-}
-.cards-container .carousel-indicators [data-bs-target] {
-  width: 12px; /* Size of the circle */
-  height: 12px; /* Size of the circle */
-  border-radius: 50%; /* Makes it circular */
-  background-color: #FFF; /* Default color */
-  border: 1px solid; /* Optional: Add a border */
-  margin: 0 5px; /* Spacing between dots */
-  opacity: 0.5; /* Default opacity for inactive dots */
-  transition: opacity 0.3s ease; /* Smooth transition */
-}
-.cards-container .carousel-indicators .active {
-  opacity: 1; /* Full opacity for the active dot */
-  background-color: #5D3A9B; /* Active dot color */
+.carousel-wrap .nav-btn.next-btn {
+  right: -20px;
 }
 
 .red {
@@ -411,7 +450,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 .section-3 .img-wrapper {
-  background-image: url(images/bg-video-review.jpg);
+  background-image: url(images/my-contury.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

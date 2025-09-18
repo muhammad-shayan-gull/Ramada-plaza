@@ -19,6 +19,13 @@ bottom: 10% !important;
 @media (max-width:767px) {
 
 
+  
+.carousel-container{
+    position: absolute;
+    top: 40%; 
+    
+}
+
   .navbar {
     img {
     max-width: 160px;

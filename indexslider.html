@@ -1,182 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 4-Card Carousel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Custom CSS to position the carousel indicators below the slider */
-        .carousel-indicators{
-            position: absolute;
-            bottom: -50px; /* Adjust this value to position the dots below the slider */
-            left: 0%;
-            right: 0%;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draggable Responsive Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        /* Custom styles to make the indicators circular */
-        .carousel-indicators [data-bs-target] {
-            width: 12px; /* Size of the circle */
-            height: 12px; /* Size of the circle */
-            border-radius: 50%; /* Makes it circular */
-            background-color: #000; /* Default color */
-            border: 1px solid #000; /* Optional: Add a border */
-            margin: 0 5px; /* Spacing between dots */
-            opacity: 0.5; /* Default opacity for inactive dots */
-            transition: opacity 0.3s ease; /* Smooth transition */
-        }
+  <style>
+  :root{
+    --gap: 1rem;
+    --card-height: 220px;
+  }
 
-        .carousel-indicators .active {
-            opacity: 1; /* Full opacity for the active dot */
-            background-color: #000; /* Active dot color */
-        }
-    </style>
+  body{background:#f7f9fb;padding:2rem;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+  .carousel-wrap{position:relative}
+
+  .cards-container{
+    display:flex;
+    gap:var(--gap);
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    padding:1rem 0.5rem;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    align-items:center;
+    user-select:none;
+    touch-action: pan-y;
+  }
+  .cards-container::-webkit-scrollbar{height:10px}
+  .cards-container::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:10px}
+
+  .card-item{
+    flex: 0 0 calc(25% - (var(--gap) * 0.75));
+    scroll-snap-align:center;
+    min-width:220px;
+    max-width:420px;
+    height:var(--card-height);
+  }
+  @media (max-width: 1199.98px){ .card-item{flex:0 0 calc(33.333% - (var(--gap) * 0.66));} }
+  @media (max-width: 767.98px){ .card-item{flex:0 0 calc(50% - (var(--gap) * 0.5));} }
+  @media (max-width: 479.98px){ .card-item{flex:0 0 calc(100% - (var(--gap) * 0.3));} }
+
+  .card-inner{height:100%;display:flex;flex-direction:column;justify-content:space-between}
+  .card-body{padding:1rem}
+  .card-img-placeholder{height:96px;border-radius:.375rem;background:linear-gradient(90deg, #e9eef6, #f7fbff);display:flex;align-items:center;justify-content:center;font-weight:600;color:#567}
+
+  .grabbing{cursor:grabbing}
+  .grab{cursor:grab}
+
+  /* Prev / Next buttons */
+  .nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#fff;
+    border:none;
+    box-shadow:0 2px 6px rgba(0,0,0,.2);
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:10;
+  }
+  .prev-btn{left:-20px;}
+  .next-btn{right:-20px;}
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h3 class="mb-3">Draggable Responsive Carousel</h3>
 
-    <div class="container-fluid">
-        
-<div id="multiCardCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- Carousel Indicators (Dots) -->
-   
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                      <div class="service1">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-xs-block">
-                    <div class="card">
-                      <div class="service2">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-none d-lg-block d-xs-block">
-                    <div class="card">
-                      <div class="service3">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING2</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-none d-lg-block d-xs-block">
-                    <div class="card">
-                      <div class="service4">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel-item">
-            <div class="row">
-                <div class="col-md-6 col-lg-3 d-xs-block">
-                    <div class="card">
-                      <div class="service4">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-xs-block">
-                    <div class="card">
-                      <div class="service2">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-none d-lg-block d-xs-block">
-                    <div class="card">
-                      <div class="service3">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-none d-lg-block d-xs-block">
-                    <div class="card">
-                      <div class="service1">
-                        <span  class="b-wrapper">
-                          <button class="card-button">BOOKING</button>
-                        </span>
-                        <span class="information">
-                          <h4>CHALET SUITES</h4>
-                          <P>DETALIS <i class="fa-solid fa-arrow-right px-2 red"></i></P>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="carousel-wrap">
+      <button class="nav-btn prev-btn">&lt;</button>
+      <div class="cards-container grab" id="carousel">
+        <!-- Cards will be injected here -->
+      </div>
+      <button class="nav-btn next-btn">&gt;</button>
     </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#multiCardCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#multiCardCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-
-    
-    <div class="carousel-indicators"> 
-      <button type="button" data-bs-target="#multiCardCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#multiCardCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      
   </div>
-</div>
-    <!-- Container for carousel indicators to position them below the slider -->
-    </div>
 
-</div>
+  <script>
+  (function(){
+    const carousel = document.getElementById('carousel');
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
 
+    let idx = 0;
+    function createCard(id){
+      const wrapper = document.createElement('div');
+      wrapper.className = 'card card-item';
+      wrapper.innerHTML = `
+        <div class="card-inner">
+          <div class="card-img-placeholder">Card ${id}</div>
+          <div class="card-body">
+            <h5 class="card-title">Card ${id}</h5>
+            <p class="card-text">This is a sample card.</p>
+          </div>
+        </div>`;
+      return wrapper;
+    }
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    // start with 8 cards
+    for(let i=1;i<=8;i++){ carousel.appendChild(createCard(++idx)); }
+
+    // drag with mouse/touch
+    let isDown=false, startX, scrollLeft;
+    carousel.addEventListener('pointerdown', (e)=>{
+      isDown = true; carousel.classList.add('grabbing');
+      startX = e.pageX; scrollLeft = carousel.scrollLeft;
+      carousel.setPointerCapture(e.pointerId);
+    });
+    carousel.addEventListener('pointermove', (e)=>{
+      if(!isDown) return;
+      const walk = e.pageX - startX;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+    function endDrag(){ isDown=false; carousel.classList.remove('grabbing'); }
+    carousel.addEventListener('pointerup', endDrag);
+    carousel.addEventListener('pointerleave', endDrag);
+
+    // one-card-at-a-time movement (synced)
+    function scrollToCard(index){
+      const card = carousel.querySelector('.card-item');
+      if(!card) return;
+      const gap = parseInt(getComputedStyle(carousel).gap) || 16;
+      const cardWidth = card.offsetWidth + gap;
+      carousel.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+    }
+
+    function getCurrentIndex(){
+      const card = carousel.querySelector('.card-item');
+      if(!card) return 0;
+      const gap = parseInt(getComputedStyle(carousel).gap) || 16;
+      const cardWidth = card.offsetWidth + gap;
+      return Math.round(carousel.scrollLeft / cardWidth);
+    }
+
+    nextBtn.addEventListener('click', ()=>{
+      let index = getCurrentIndex();
+      scrollToCard(index+1);
+    });
+
+    prevBtn.addEventListener('click', ()=>{
+      let index = getCurrentIndex();
+      scrollToCard(index-1);
+    });
+
+  })();
+  </script>
 </body>
 </html>
